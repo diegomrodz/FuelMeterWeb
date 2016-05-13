@@ -151,11 +151,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-
+        FuelMeterWeb\Providers\AppServiceProvider::class,
+        FuelMeterWeb\Providers\AuthServiceProvider::class,
+        FuelMeterWeb\Providers\EventServiceProvider::class,
+        FuelMeterWeb\Providers\RouteServiceProvider::class,
+        FuelMeterWeb\Providers\ComposerServiceProvider::class
     ],
 
     /*

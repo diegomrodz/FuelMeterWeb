@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace FuelMeterWeb\Jobs;
 
 use Illuminate\Bus\Queueable;
 

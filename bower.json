@@ -1,0 +1,5 @@
+{
+  "name": "fuelmeterweb",
+  "directory": "public/static/web/bower_components",
+  "private": true
+}

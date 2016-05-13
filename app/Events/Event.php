@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace FuelMeterWeb\Events;
 
 abstract class Event
 {

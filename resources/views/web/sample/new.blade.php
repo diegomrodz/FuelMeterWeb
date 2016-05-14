@@ -98,7 +98,7 @@
 
 
         <div class="form-group col-md-12">
-            <button type="button" class="btn btn-primary green btn-lg pull-right">Enviar</button>
+            <button type="button" ng-click="postSample()" class="btn btn-primary green btn-lg pull-right">Enviar</button>
         </div>
 
     </div>

@@ -7,7 +7,7 @@ FuelMeterWeb.service('AEACService' ,[
             if (dif < 0.5) return 0.01;
             var res = (dif * 2) + 1;
 
-            return (res > 0 ? res : -res) / 100;
+            return (res > 0 ? res : -res);
         }
     }
 ]);

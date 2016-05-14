@@ -38,11 +38,7 @@ class SampleController extends Controller
      */
     public function store(Request $request)
     {
-        $sample = new Sample($request->sample);
-
-        $sample->save();
-
-        return $sample;
+        return Sample::create($request->sample);
     }
 
     /**

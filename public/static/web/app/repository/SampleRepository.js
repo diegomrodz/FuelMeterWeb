@@ -1,5 +1,5 @@
 FuelMeterWeb.service('SampleRepository', ['$http',
-    function () {
+    function ($http) {
         var me = this;
         
         me.store = function (sample) {

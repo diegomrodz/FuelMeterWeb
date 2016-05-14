@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMeasurementsTable extends Migration
+class CreateSamplesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateMeasurementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('measurements', function (Blueprint $table) {
+        Schema::create('samples', function (Blueprint $table) {
             $table->increments('id');
-            
+
             $table->string('name')->nullable(true);
             $table->string('email')->nullable(true);
+            $table->string('institution')->nullable(true);
             $table->string('attendant_name')->nullable(true);
             $table->string('station_name')->nullable(true);
             $table->string('station_flag')->nullable(true);
@@ -25,12 +26,13 @@ class CreateMeasurementsTable extends Migration
             $table->string('station_district')->nullable(true);
             $table->string('station_city')->nullable(true);
             $table->string('station_state')->nullable(true);
+            $table->string('station_lat')->nullable(true);
+            $table->string('station_lng')->nullable(true);
             $table->double('sample_volume')->nullable(true);
             $table->double('sample_result')->nullable(true);
             $table->text('proceedings')->nullable(true);
             $table->text('observation')->nullable(true);
-            
-            $table->boolean('active')->default(true);
+
             $table->timestamps();
         });
     }
@@ -42,6 +44,6 @@ class CreateMeasurementsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('measurements');
+        Schema::drop('samples');
     }
 }

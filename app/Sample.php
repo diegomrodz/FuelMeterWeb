@@ -4,7 +4,7 @@ namespace FuelMeterWeb;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Measurement extends Model
+class Sample extends Model
 {
     //
 }

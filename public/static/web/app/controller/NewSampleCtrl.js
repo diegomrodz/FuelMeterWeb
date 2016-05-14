@@ -1,51 +1,3 @@
-var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute']);
-
-var APP_URL = $("#APP_URL").val();
-var CSRF_TOKEN = $("#CSRF_TOKEN").val();
-
-function app_url(path) {
-    return APP_URL + "/" + path;
-}
-
-function web_url(path) {
-    return app_url("web/" + path);
-}
-
-function api_url(path) {
-    return app_url("api/" + path);
-}
-
-function api_v1_url(path) {
-    return api_url("v1/" + path);
-}
-
-FuelMeterWeb.run([
-   function () {
-
-   }
-]);
-
-FuelMeterWeb.config(['$routeProvider',
-    function ($routeProvider) {
-
-        $routeProvider
-            .when("/", {
-                templateUrl: web_url("index"),
-                controller: "IndexCtrl"
-            })
-            .when("/new", {
-                templateUrl: web_url("sample/new"),
-                controller: "NewSampleCtrl"
-            });
-
-    }
-]);
-
-FuelMeterWeb.controller('IndexCtrl', ['$scope',
-    function ($scope) {
-    }
-]);
-
 FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', 'AEACService',
     function ($scope, $http, AEACService) {
 
@@ -92,38 +44,5 @@ FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', 'AEACService',
                 alert("Houve um erro na obtenção das coordenadas geográficas do cep informado.");
             });
         };
-    }
-]);
-
-FuelMeterWeb.service('SampleRepository', ['$http',
-    function () {
-        var me = this;
-        
-        me.store = function (sample) {
-            return $http({
-                url: api_v1_url("sample"),
-                method: "post",
-                data: {
-                    sample: sample,
-                    _token: CSRF_TOKEN
-                },
-                dataType: "json"
-            });
-        };
-        
-    }
-])
-
-FuelMeterWeb.service('AEACService' ,[
-    function () {
-        var me = this;
-
-        me.calc = function (vol) {
-            var dif = (vol - 50);
-            if (dif < 0.5) return 0.01;
-            var res = (dif * 2) + 1;
-
-            return (res > 0 ? res : -res) / 100;
-        }
     }
 ]);

@@ -9,7 +9,9 @@
 
     <title>Fuel Meter Web</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<%$STATIC_URL%>/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%$STATIC_URL%>/bower_components/materialize/css/materialize.min.css" rel="stylesheet">
     <link href="<%$STATIC_URL%>/css/the-big-picture.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,8 +21,12 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWpNmdWlTIhhgD24vSdGy7zOs_QNTefY">
+    </script>
+
     <script src="<%$STATIC_URL%>/bower_components/jquery/dist/jquery.js"></script>
     <script src="<%$STATIC_URL%>/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/materialize/js/materialize.js"></script>
     <script src="<%$STATIC_URL%>/bower_components/angular/angular.js"></script>
     <script src="<%$STATIC_URL%>/bower_components/angular-route/angular-route.js"></script>
 
@@ -62,9 +68,14 @@
     <div class="row" ng-view>
 
     </div>
+
+    <a href="#/new" style="position: absolute; right: 25px; bottom: 80px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
 </div>
 
+
 <input type="hidden" id="APP_URL" value="<%$APP_URL%>">
+<input type="hidden" id="CSRF_TOKEN" value="<% csrf_token() %>">
 
 <script src="<%$STATIC_URL%>/dist/0.0.1/FuelMeterWeb.js"></script>
 

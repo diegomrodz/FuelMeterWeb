@@ -17,4 +17,29 @@ Route::group([
         
     });
 
+    Route::group([
+        'namespace' => 'Sample',
+        'prefix' => 'sample'
+    ], function () {
+
+        Route::get('/new', 'ViewController@getNew');
+
+    });
+
+});
+
+Route::group([
+    'namespace' => 'Api',
+    'prefix' => 'api'
+], function () {
+
+    Route::group([
+        'namespace' => 'v1',
+        'prefix' => 'v1'
+    ], function () {
+
+        Route::resource('sample', 'SampleController');
+
+    });
+
 });

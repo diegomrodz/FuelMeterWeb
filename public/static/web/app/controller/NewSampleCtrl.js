@@ -11,13 +11,14 @@ FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', '$location', 'AEACS
             sample.station_name = $scope.stationName;
             sample.station_flag = $scope.stationFlag;
             sample.station_cep = $scope.stationCep;
+            sample.station_address = $scope.stationAddress;
             sample.station_district = $scope.stationDistrict;
             sample.station_state = $scope.stationState;
             sample.station_city = $scope.stationCity;
             sample.station_lat = $scope.stationLat;
             sample.station_lng = $scope.stationLng;
             sample.sample_volume = $scope.sampleVolume;
-            sample.sample_result = $scope.sampleResult;
+            sample.sample_result = $scope.calcAEAC($scope.sampleVolume);
             sample.proceedings = $scope.proceedings;
             sample.observation = $scope.observation;
 

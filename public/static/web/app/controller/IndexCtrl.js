@@ -1,4 +1,9 @@
-FuelMeterWeb.controller('IndexCtrl', ['$scope',
-    function ($scope) {
+FuelMeterWeb.controller('IndexCtrl', ['$scope', 'SampleRepository',
+    function ($scope, SampleRepository) {
+        $scope.markers = [];
+
+        SampleRepository.all().then(function (res) {
+            $scope.markers = res.data;
+        });
     }
 ]);

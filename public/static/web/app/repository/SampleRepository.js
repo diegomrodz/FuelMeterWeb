@@ -13,6 +13,13 @@ FuelMeterWeb.service('SampleRepository', ['$http',
                 dataType: "json"
             });
         };
-        
+
+        me.all = function (sample) {
+            return $http({
+                url: api_v1_url("sample"),
+                method: "get",
+                dataType: "json"
+            });
+        };
     }
 ])

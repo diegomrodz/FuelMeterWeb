@@ -9,7 +9,7 @@ class Sample extends Model
     protected $fillable = [
         'name',
         'email',
-        'instituition',
+        'institution',
         'attendant_name',
         'station_name',
         'station_flag',

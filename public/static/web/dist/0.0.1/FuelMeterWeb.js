@@ -1,4 +1,4 @@
-var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute']);
+var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute', 'ngMap']);
 
 var APP_URL = $("#APP_URL").val();
 var CSRF_TOKEN = $("#CSRF_TOKEN").val();
@@ -41,8 +41,27 @@ FuelMeterWeb.config(['$routeProvider',
     }
 ]);
 
-FuelMeterWeb.controller('IndexCtrl', ['$scope',
-    function ($scope) {
+FuelMeterWeb.controller('FloatingButtonCtrl', ['$scope', '$rootScope', '$location',
+   function ($scope, $rootScope, $location) {
+       $scope.isVisible = false;
+
+       $rootScope.$on('$locationChangeSuccess', function(event){
+           if ($location.path() == "/") {
+               $scope.isVisible = true;
+           } else {
+               $scope.isVisible = false;
+           }
+       });
+   }
+]);
+
+FuelMeterWeb.controller('IndexCtrl', ['$scope', 'SampleRepository',
+    function ($scope, SampleRepository) {
+        $scope.markers = [];
+
+        SampleRepository.all().then(function (res) {
+            $scope.markers = res.data;
+        });
     }
 ]);
 
@@ -59,13 +78,14 @@ FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', '$location', 'AEACS
             sample.station_name = $scope.stationName;
             sample.station_flag = $scope.stationFlag;
             sample.station_cep = $scope.stationCep;
+            sample.station_address = $scope.stationAddress;
             sample.station_district = $scope.stationDistrict;
             sample.station_state = $scope.stationState;
             sample.station_city = $scope.stationCity;
             sample.station_lat = $scope.stationLat;
             sample.station_lng = $scope.stationLng;
             sample.sample_volume = $scope.sampleVolume;
-            sample.sample_result = $scope.sampleResult;
+            sample.sample_result = $scope.calcAEAC($scope.sampleVolume);
             sample.proceedings = $scope.proceedings;
             sample.observation = $scope.observation;
 
@@ -142,7 +162,14 @@ FuelMeterWeb.service('SampleRepository', ['$http',
                 dataType: "json"
             });
         };
-        
+
+        me.all = function (sample) {
+            return $http({
+                url: api_v1_url("sample"),
+                method: "get",
+                dataType: "json"
+            });
+        };
     }
 ])
 

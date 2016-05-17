@@ -21,7 +21,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWpNmdWlTIhhgD24vSdGy7zOs_QNTefY">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWpNmdWlTIhhgD24vSdGy7zOs_QNTefY">
     </script>
 
     <script src="<%$STATIC_URL%>/bower_components/jquery/dist/jquery.js"></script>
@@ -29,6 +29,48 @@
     <script src="<%$STATIC_URL%>/bower_components/materialize/js/materialize.js"></script>
     <script src="<%$STATIC_URL%>/bower_components/angular/angular.js"></script>
     <script src="<%$STATIC_URL%>/bower_components/angular-route/angular-route.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/ng-maps/dist/ng-map.min.js"></script>
+
+    <style>
+        .custom-marker {
+            font-size: 1em;
+            padding: 1px;
+            color: #fff;
+            background: #ff0000;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            border: #7F7F7F solid 1px;
+        }
+
+        .custom-marker:after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 7px 6px 0;
+            border-color: #ff0000 transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+            margin-left: -6px;
+            bottom: -6px;
+            left: 50%;
+        }
+
+        .custom-marker:before {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 7px 6px 0;
+            border-color: #7F7F7F transparent;
+            display: block;
+            width: 0;
+            z-index: 0;
+            margin-left: -6px;
+            bottom: -7px;
+            left: 50%;
+        }
+    </style>
 
 </head>
 
@@ -69,7 +111,7 @@
 
     </div>
 
-    <a href="#/new" style="position: absolute; right: 25px; bottom: 80px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a ng-controller="FloatingButtonCtrl" ng-show="isVisible" href="#/new" style="position: absolute; right: 25px; bottom: 80px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 
 </div>
 

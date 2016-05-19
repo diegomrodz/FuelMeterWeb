@@ -4,7 +4,8 @@ Route::get('/', 'IndexController@getIndex');
 
 Route::group([
     'namespace' => 'Web',
-    'prefix' => 'web'
+    'prefix' => 'web',
+    'middleware' => 'web'
 ], function () {
 
     Route::group([

@@ -13,4 +13,14 @@ class ViewController extends Controller
     {
         return view('web.sample.new');
     }
+
+    public function getData()
+    {
+        return view('web.sample.data');
+    }
+
+    public function getDetail()
+    {
+        return view('web.sample.detail');
+    }
 }

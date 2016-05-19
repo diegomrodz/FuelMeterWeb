@@ -1,4 +1,4 @@
-var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute', 'ngMap']);
+var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute', 'ngMap', 'datatables']);
 
 var APP_URL = $("#APP_URL").val();
 var CSRF_TOKEN = $("#CSRF_TOKEN").val();
@@ -36,6 +36,17 @@ FuelMeterWeb.config(['$routeProvider',
             .when("/new", {
                 templateUrl: web_url("sample/new"),
                 controller: "NewSampleCtrl"
+            })
+            .when("/data", {
+                templateUrl: web_url("sample/data"),
+                controller: "SampleDataCtrl"
+            })
+            .when("/sample/:sampleId", {
+                templateUrl: web_url("sample/detail"),
+                controller: "SampleDetailCtrl"
+            })
+            .when("/about", {
+                templateUrl: web_url("about")
             });
 
     }
@@ -62,6 +73,12 @@ FuelMeterWeb.controller('IndexCtrl', ['$scope', 'SampleRepository',
         SampleRepository.all().then(function (res) {
             $scope.markers = res.data;
         });
+    }
+]);
+
+FuelMeterWeb.controller('NavBarCtrl', ['$scope',
+    function ($scope) {
+        $scope.isCollapsed = true;
     }
 ]);
 
@@ -147,10 +164,38 @@ FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', '$location', 'AEACS
     }
 ]);
 
+FuelMeterWeb.controller('SampleDataCtrl', ['$scope', 'SampleRepository',
+    function ($scope, SampleRepository) {
+        $scope.samples = [];
+
+        SampleRepository.all().then(function (res) {
+            $scope.samples = res.data;
+        });
+    }
+]);
+
+FuelMeterWeb.controller('SampleDetailCtrl', ['$scope', '$routeParams', 'SampleRepository',
+    function ($scope, $routeParams, SampleRepository) {
+        $scope.sensor = {};
+
+        SampleRepository.find($routeParams.sampleId).then(function (res) {
+            $scope.sensor = res.data;
+        });
+    }
+]);
+
 FuelMeterWeb.service('SampleRepository', ['$http',
     function ($http) {
         var me = this;
-        
+
+        me.find = function (id) {
+            return $http({
+                url: api_v1_url("sample/" + id),
+                method: "get",
+                dataType: "json"
+            });
+        };
+
         me.store = function (sample) {
             return $http({
                 url: api_v1_url("sample"),

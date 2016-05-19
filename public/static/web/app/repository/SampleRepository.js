@@ -1,7 +1,15 @@
 FuelMeterWeb.service('SampleRepository', ['$http',
     function ($http) {
         var me = this;
-        
+
+        me.find = function (id) {
+            return $http({
+                url: api_v1_url("sample/" + id),
+                method: "get",
+                dataType: "json"
+            });
+        };
+
         me.store = function (sample) {
             return $http({
                 url: api_v1_url("sample"),

@@ -1,4 +1,4 @@
-var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute', 'ngMap']);
+var FuelMeterWeb = angular.module('FuelMeterWeb', ['ngRoute', 'ngMap', 'datatables']);
 
 var APP_URL = $("#APP_URL").val();
 var CSRF_TOKEN = $("#CSRF_TOKEN").val();

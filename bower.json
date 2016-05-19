@@ -1,5 +1,8 @@
 {
   "name": "fuelmeterweb",
   "directory": "public/static/web/bower_components",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "datatables.net": "^1.10.11"
+  }
 }

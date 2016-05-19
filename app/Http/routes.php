@@ -23,6 +23,17 @@ Route::group([
     ], function () {
 
         Route::get('/new', 'ViewController@getNew');
+        Route::get('/data', 'ViewController@getData');
+        Route::get('/detail', 'ViewController@getDetail');
+
+    });
+
+    Route::group([
+        'namespace' => 'About',
+        'prefix' => 'about'
+    ], function () {
+
+        Route::get('/', 'ViewController@getIndex');
 
     });
 

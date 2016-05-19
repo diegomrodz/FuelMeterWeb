@@ -13,7 +13,7 @@
         position="[{{marker.station_lat}}, {{marker.station_lng}}]">
 
         <div class="custom-marker">
-            {{marker.station_name}}
+            <a href="#/sample/{{marker.id}}">{{marker.station_name}}</a>
         </div>
 
     </custom-marker>

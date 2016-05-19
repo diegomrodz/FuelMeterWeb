@@ -78,6 +78,7 @@
 <br>
 
 <ul>
+    <li class="text-danger">Arrumar navegação no mobile.</li>
     <li>Novo Layout e Melhor Design</li>
     <li>Mais Informações</li>
     <li>Melhorar marcadores no mapa. (ex.: indicar pureza no marcador)</li>

@@ -16,6 +16,15 @@ Route::group([
         Route::get('/', 'ViewController@getIndex');
         
     });
+    
+    Route::group([
+        'namespace' => 'HowTo',
+        'prefix' => 'how-to'
+    ], function () {
+       
+       Route::get('/', 'ViewController@getIndex');
+        
+    });
 
     Route::group([
         'namespace' => 'Sample',
@@ -50,7 +59,7 @@ Route::group([
     ], function () {
 
         Route::resource('sample', 'SampleController');
-
+        
     });
 
 });

@@ -110,6 +110,9 @@
                     <a href="#/data">Dados</a>
                 </li>
                 <li>
+                    <a href="#/how-to">Como Fazer?</a>
+                </li>
+                <li>
                     <a href="#/about">Sobre</a>
                 </li>
             </ul>

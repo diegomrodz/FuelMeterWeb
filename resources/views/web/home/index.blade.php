@@ -9,11 +9,11 @@
         street-view-control-options="{position:'LEFT_BOTTOM'}">
 
     <custom-marker ng-repeat="marker in markers"
-        id="{{marker.id}}"
-        position="[{{marker.station_lat}}, {{marker.station_lng}}]">
+        id="{{marker[0].id}}"
+        position="[{{marker[0].station_lat}}, {{marker[0].station_lng}}]">
 
         <div class="custom-marker">
-            <a href="#/sample/{{marker.id}}">{{marker.station_name}}</a>
+            <a href="#/sample/{{marker[0].id}}">{{marker[0].station_name}}</a>
         </div>
 
     </custom-marker>

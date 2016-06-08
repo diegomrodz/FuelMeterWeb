@@ -22,11 +22,19 @@ FuelMeterWeb.service('SampleRepository', ['$http',
             });
         };
 
-        me.all = function (sample) {
+        me.all = function () {
             return $http({
                 url: api_v1_url("sample"),
                 method: "get",
                 dataType: "json"
+            });
+        };
+        
+        me.groupBy = function (field) {
+            return $http({
+               url: api_v1_url("sample?groupBy=" + field),
+               method: "get",
+               dataType: "json" 
             });
         };
     }

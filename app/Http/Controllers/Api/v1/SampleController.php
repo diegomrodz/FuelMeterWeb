@@ -15,8 +15,13 @@ class SampleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->groupBy) 
+        {
+            return Sample::get()->groupBy($request->groupBy);    
+        }
+        
         return Sample::get();
     }
 

@@ -12,10 +12,10 @@ module.exports = function(grunt) {
                 src: [
                     'public/static/web/app/main.js',
                     'public/static/web/app/factory/**/*.js',
-                    'public/static/web/app/**/*.js',
-                    'public/static/web/app/**/*.js',
-                    'public/static/web/app/**/*.js',
-                    'public/static/web/app/**/*.js',
+                    'public/static/web/app/service/**/*.js',
+                    'public/static/web/app/repository/**/*.js',
+                    'public/static/web/app/controller/**/*.js',
+                    'public/static/web/app/directive/**/*.js',
                     'public/static/web/app/config.js'
                 ],
                 dest: 'public/static/web/dist/<%= pkg.version %>/<%= pkg.name %>.js'
@@ -37,10 +37,10 @@ module.exports = function(grunt) {
                 files: [
                     'public/static/web/app/main.js',
                     'public/static/web/app/factory/**/*.js',
-                    'public/static/web/app/**/*.js',
-                    'public/static/web/app/**/*.js',
-                    'public/static/web/app/**/*.js',
-                    'public/static/web/app/**/*.js',
+                    'public/static/web/app/service/**/*.js',
+                    'public/static/web/app/repository/**/*.js',
+                    'public/static/web/app/controller/**/*.js',
+                    'public/static/web/app/directive/**/*.js',
                     'public/static/web/app/config.js'
                 ],
                 tasks: ['default']

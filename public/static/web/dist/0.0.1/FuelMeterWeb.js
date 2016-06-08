@@ -25,32 +25,61 @@ FuelMeterWeb.run([
    }
 ]);
 
-FuelMeterWeb.config(['$routeProvider',
-    function ($routeProvider) {
+FuelMeterWeb.service('AEACService' ,[
+    function () {
+        var me = this;
 
-        $routeProvider
-            .when("/", {
-                templateUrl: web_url("index"),
-                controller: "IndexCtrl"
-            })
-            .when("/new", {
-                templateUrl: web_url("sample/new"),
-                controller: "NewSampleCtrl"
-            })
-            .when("/data", {
-                templateUrl: web_url("sample/data"),
-                controller: "SampleDataCtrl"
-            })
-            .when("/sample/:sampleId", {
-                templateUrl: web_url("sample/detail"),
-                controller: "SampleDetailCtrl"
-            })
-            .when("/about", {
-                templateUrl: web_url("about")
-            });
+        me.calc = function (vol) {
+            var dif = (vol - 50);
+            if (dif < 0.5) return 0.01;
+            var res = (dif * 2) + 1;
 
+            return (res > 0 ? res : -res);
+        }
     }
 ]);
+
+FuelMeterWeb.service('SampleRepository', ['$http',
+    function ($http) {
+        var me = this;
+
+        me.find = function (id) {
+            return $http({
+                url: api_v1_url("sample/" + id),
+                method: "get",
+                dataType: "json"
+            });
+        };
+
+        me.store = function (sample) {
+            return $http({
+                url: api_v1_url("sample"),
+                method: "post",
+                data: {
+                    sample: sample,
+                    _token: CSRF_TOKEN
+                },
+                dataType: "json"
+            });
+        };
+
+        me.all = function () {
+            return $http({
+                url: api_v1_url("sample"),
+                method: "get",
+                dataType: "json"
+            });
+        };
+        
+        me.groupBy = function (field) {
+            return $http({
+               url: api_v1_url("sample?groupBy=" + field),
+               method: "get",
+               dataType: "json" 
+            });
+        };
+    }
+])
 
 FuelMeterWeb.controller('FloatingButtonCtrl', ['$scope', '$rootScope', '$location',
    function ($scope, $rootScope, $location) {
@@ -66,12 +95,18 @@ FuelMeterWeb.controller('FloatingButtonCtrl', ['$scope', '$rootScope', '$locatio
    }
 ]);
 
+FuelMeterWeb.controller('HowToCtrl', ['$scope',
+    function ($scope) {
+        
+    }
+]);
+
 FuelMeterWeb.controller('IndexCtrl', ['$scope', 'SampleRepository',
     function ($scope, SampleRepository) {
         $scope.markers = [];
 
-        SampleRepository.all().then(function (res) {
-            $scope.markers = res.data;
+        SampleRepository.groupBy("station_cep").then(function (res) {
+           $scope.markers = res.data; 
         });
     }
 ]);
@@ -184,50 +219,33 @@ FuelMeterWeb.controller('SampleDetailCtrl', ['$scope', '$routeParams', 'SampleRe
     }
 ]);
 
-FuelMeterWeb.service('SampleRepository', ['$http',
-    function ($http) {
-        var me = this;
+FuelMeterWeb.config(['$routeProvider',
+    function ($routeProvider) {
 
-        me.find = function (id) {
-            return $http({
-                url: api_v1_url("sample/" + id),
-                method: "get",
-                dataType: "json"
+        $routeProvider
+            .when("/", {
+                templateUrl: web_url("index"),
+                controller: "IndexCtrl"
+            })
+            .when("/new", {
+                templateUrl: web_url("sample/new"),
+                controller: "NewSampleCtrl"
+            })
+            .when("/data", {
+                templateUrl: web_url("sample/data"),
+                controller: "SampleDataCtrl"
+            })
+            .when('/how-to', {
+                templateUrl: web_url("how-to"),
+                controller: "HowToCtrl",
+            })
+            .when("/sample/:sampleId", {
+                templateUrl: web_url("sample/detail"),
+                controller: "SampleDetailCtrl"
+            })
+            .when("/about", {
+                templateUrl: web_url("about")
             });
-        };
 
-        me.store = function (sample) {
-            return $http({
-                url: api_v1_url("sample"),
-                method: "post",
-                data: {
-                    sample: sample,
-                    _token: CSRF_TOKEN
-                },
-                dataType: "json"
-            });
-        };
-
-        me.all = function (sample) {
-            return $http({
-                url: api_v1_url("sample"),
-                method: "get",
-                dataType: "json"
-            });
-        };
-    }
-])
-
-FuelMeterWeb.service('AEACService' ,[
-    function () {
-        var me = this;
-
-        me.calc = function (vol) {
-            var dif = (vol - 50);
-            if (dif < 0.5) return 0.01;
-            var res = (dif * 2) + 1;
-
-            return (res > 0 ? res : -res);
-        }
     }
 ]);

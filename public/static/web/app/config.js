@@ -14,6 +14,10 @@ FuelMeterWeb.config(['$routeProvider',
                 templateUrl: web_url("sample/data"),
                 controller: "SampleDataCtrl"
             })
+            .when('/how-to', {
+                templateUrl: web_url("how-to"),
+                controller: "HowToCtrl",
+            })
             .when("/sample/:sampleId", {
                 templateUrl: web_url("sample/detail"),
                 controller: "SampleDetailCtrl"

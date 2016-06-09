@@ -72,7 +72,7 @@
                 </tr>
 
                 <tr>
-                    <td style="width: 30%;"><strong style="font-weight: bold;">Resultado:</strong></td>
+                    <td style="width: 30%;"><strong style="font-weight: bold;">Teor Alcoólico:</strong></td>
                     <td>{{sensor.sample_result}} %</td>
                 </tr>
 

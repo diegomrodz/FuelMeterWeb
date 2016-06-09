@@ -2,14 +2,33 @@
 
 <br><br>
 
-<h5>Objetivo</h5>
+<h5>Sobre</h5>
 
 <br>
 
 <p>
-    Desenvolver uma aplicação que promova consciência social
-    sobre a importância de garantir o consumo de gasolina de
-    qualidade.
+A utilização do petróleo foi essencial para garantir o desenvolvimento industrial verificado durante o século XX. Através da sua destilação fracionada, pode-se obter vários produtos derivados de grande importância econômica, tais como o gás natural, o querosene, o diesel, os óleos lubrificantes, a parafina e o asfalto.
+</p>
+
+<p>
+Sempre que ocorre instabilidade no preço do petróleo, com sucessivos aumentos do preço de seus derivados, a gasolina ganha ainda mais evidência na mídia. A qualidade da gasolina comercializada no Brasil tem sido constante objeto de questionamento; assim, a determinação da sua composição é importante, devido a algumas formas de adulteração com solventes orgânicos que prejudicam os motores dos automóveis.
+</p>
+
+<p>
+Um componente presente exclusivamente na gasolina brasileira que merece destaque especial é o etanol. Seu principal papel é atuar como antidetonante, em substituição ao chumbo tetraetila, que está sendo banido devido à sua elevada toxicidade. A quantidade de etanol presente na gasolina deve respeitar os limites estabelecidos pela Agência Nacional do Petróleo – ANP.
+</p>
+
+<p>
+A falta ou excesso de álcool em relação aos limites estabelecidos pela ANP compromete a qualidade do produto que chega aos consumidores brasileiros.
+Assim, avaliar a composição da gasolina, verificando se o teor de álcool está adequado, é uma atitude muito importante.
+</p>
+
+<p>
+Um teste simples que qualquer pode fazer é o “Teste da Proveta”, este tem como objetivo verificar o teor de etanol na gasolina. Esse teste, quando solicitado pelo consumidor, é obrigatório para o posto revendedor de combustíveis, conforme a Resolução ANP nº 9, de 7 de março de 2007.
+</p>
+
+<p>
+Por este motivo criamos esta iniciativa junto ao Senac para que pessoas possam inserir os resultados dos testes realizados nos postos de combustível de sua preferência, além de prover informações importantes no que diz respeito a como lidar com as variações definidas pela ANP e irregularidades encontradas nos postos.
 </p>
 
 <br>
@@ -19,41 +38,22 @@
 <br>
 
 <p>
-    Qualquer pessoa pode inserir novas amostras em nosso banco de dados. Basta preencher o formulário corretamente
-    e descrever como foi o procedimento de coleta. Pronto! Com esse pequeno ato você ajudou a compartilhar uma informação
-    de muita relevância.
-    <br><br>
-    * Seu envio pode ser rejeitado caso sejam indentificadas irregularidades.
+A aplicação é pública e qualquer um pode preencher o formulário e inserir uma nova amostra em nosso banco de dados. Entretanto, este processo exige que alguns cuidados sejam tomados:
 </p>
 
-<h5>Amostra</h5>
-
-<br>
+<div style="margin-left: 20px;">
+    <p><strong>*</strong> Exigir a Nota Fiscal;</p>
+    <p><strong>*</strong> Conferir se os dados estão corretos, atenção redobrada ao CEP, pois este usado para classificar as amostras;</p>
+    <p><strong>*</strong> Verificar se gasolina utilizada é a mesma do tanque;</p>
+    <p><strong>*</strong> Anotar procedimento detalhadamente;</p>
+    <p><strong>*</strong> Tirar fotos do resultado;</p>
+    <p><strong>*</strong> (Opcional) Perguntar quantos tanques subterrâneos o posto possui;</p>
+    <p><strong>*</strong> Avaliar atendimento;</p>
+</div>
 
 <p>
-    O procedimento deve ser realizado conforme norma NBR 13992 da ABNT. Que descreve como determinar o teor de álcool
-    etílico anidro combustível (AEAC), na faixa de 1% a 100% em volume, em gasolina automotiva. (obs: outros álcoois
-    presentes serão computados como AEAC).
+Uma vez preenchido o formulário, basta clicar em enviar e sua amostra será adicionada ao histórico daquele posto.    
 </p>
-
-<br>
-
-<h6 style="font-weight: bold;">Procedimentos:</h6>
-
-<ul>
-    <li>Colocar 50 mL da amostra na proveta previamente limp, desengordurada e seca.</li>
-    <li>Adicionar a solução de NaCl até completar o volume de 100 mL.</li>
-    <li>
-        Tampar a proveta e inverter por dex vezes, evitando agitação enegética, para completar a extração do álcool
-        pela camada aquosa.
-    </li>
-    <li>
-        Deixar em repouso por 15 minutos, a fim de permitir a separação completa das duas camadas.
-    </li>
-    <li>
-        Anotar o volume final da camada aquosa, em milimetros.
-    </li>
-</ul>
 
 <br>
 
@@ -73,28 +73,11 @@
 
 <br>
 
-<h6 style="font-weight: bold">TODO:</h6>
-
-<br>
-
-<ul>
-    <li class="text-danger">Arrumar navegação no mobile.</li>
-    <li class="text-danger">Validar dados antes do envio do formulário</li>
-    <li>Novo Layout e Melhor Design</li>
-    <li>Mais Informações</li>
-    <li>Melhorar marcadores no mapa. (ex.: indicar pureza no marcador)</li>
-    <li>Inserir Fotos ou Vídeos na Amostra</li>
-    <li>Mostrar amostras de acordo com o zoom do mapa.</li>
-</ul>
-
-<br>
-
 <h5>Referências</h5>
 
 <br>
 
+
 <p>
-    <a target="_blank" href="ftp://ftp.feq.ufu.br/Luis/NR_Seguran%E7a_Mec2007/Incoming/Nbr%2013992%20-%20Gasolina%20Automotiva%20-%20Determinacao%20Do%20Teor%20De%20Alcool%20Etilico%20Anidro%20Combustivel%20(Aeac.pdf">
-        ABNT NBR13992 - Norma para realização da coleta de amostra.
-    </a>
+    <a target="_blank" href="http://qnesc.sbq.org.br/online/qnesc17/a11.pdf">Explorando a Química na Determinação do Teor de Álcool na Gasolina.</a>
 </p>

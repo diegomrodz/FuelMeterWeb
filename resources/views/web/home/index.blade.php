@@ -1,4 +1,4 @@
-<ng-map style="position: absolute; top: 0; left: 0; width: 100%; height: 94%;"
+<ng-map style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
         center="current-position"
         geo-fallback-center="[-23.6523747, -46.7664347]"
         map-type-control="true"

@@ -13,6 +13,7 @@ class Sample extends Model
         'attendant_name',
         'station_name',
         'station_flag',
+        'underground_tanks_number',
         'station_cep',
         'station_address',
         'station_district',

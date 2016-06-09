@@ -15,6 +15,8 @@
     <link href="<%$STATIC_URL%>/css/the-big-picture.css" rel="stylesheet">
     <link href="<%$STATIC_URL%>/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="<%$STATIC_URL%>/bower_components/angular-datatables/dist/css/angular-datatables.min.css" rel="stylesheet">
+    <link href="<%$STATIC_URL%>/bower_components/ng-dialog/css/ngDialog.min.css" rel="stylesheet">
+    <link href="<%$STATIC_URL%>/bower_components/ng-dialog/css/ngDialog-theme-default.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,14 +28,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWpNmdWlTIhhgD24vSdGy7zOs_QNTefY">
     </script>
 
-    <script src="<%$STATIC_URL%>/bower_components/jquery/dist/jquery.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/materialize/js/materialize.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/angular/angular.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/angular-route/angular-route.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/ng-maps/dist/ng-map.min.js"></script>
-    <script src="<%$STATIC_URL%>/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
 
     <style>
         .table > tbody > tr > td {
@@ -90,9 +84,10 @@
 
 <body>
 
+
+
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation" ng-controller="NavBarCtrl">
-    <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 40px;" role="navigation" ng-controller="NavBarCtrl">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
@@ -104,13 +99,13 @@
             <a class="navbar-brand" href="#/">Fuel Meter Web</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+        <div class="navbar-collapse" style="background: #222;" uib-collapse="isCollapsed">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="#/data">Dados</a>
                 </li>
                 <li>
-                    <a href="#/how-to">Como Fazer?</a>
+                    <a href="#/how-to">Teste da Proveta</a>
                 </li>
                 <li>
                     <a href="#/about">Sobre</a>
@@ -118,7 +113,6 @@
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-    </div>
     <!-- /.container -->
 </nav>
 
@@ -127,7 +121,7 @@
 
     </div>
 
-    <a ng-controller="FloatingButtonCtrl" ng-show="isVisible" href="#/new" style="position: absolute; right: 25px; bottom: 80px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a ng-controller="FloatingButtonCtrl" ng-show="isVisible" href="#/new" style="position: absolute; right: 25px; bottom: 35px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 
 </div>
 
@@ -135,6 +129,17 @@
 <input type="hidden" id="APP_URL" value="<%$APP_URL%>">
 <input type="hidden" id="CSRF_TOKEN" value="<% csrf_token() %>">
 
+    <script src="<%$STATIC_URL%>/bower_components/jquery/dist/jquery.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/materialize/js/materialize.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/angular/angular.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/angular-file-model/angular-file-model.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/angular-route/angular-route.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/ng-maps/dist/ng-map.min.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/ng-dialog/js/ngDialog.min.js"></script>
+    <script src="<%$STATIC_URL%>/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
 <script src="<%$STATIC_URL%>/dist/0.0.1/FuelMeterWeb.js"></script>
 
 </body>

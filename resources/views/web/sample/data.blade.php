@@ -7,7 +7,7 @@
                     <th>Amostra</th>
                     <th>Usuário</th>
                     <th>Instituição</th>
-                    <th>Res. (Pureza)</th>
+                    <th>Teor Alcoólico</th>
                     <th>Data e Hora</th>
                 </tr>
             </thead>

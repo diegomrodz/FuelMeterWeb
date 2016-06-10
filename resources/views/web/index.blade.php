@@ -38,11 +38,21 @@
             font-size: 1em;
             padding: 1px;
             color: #fff;
-            background: #ff0000;
+            background: #00B30c;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
-            border: #7F7F7F solid 1px;
+            border: #101010 solid 1px;
+        }
+        
+        .custom-marker-alert {
+            background: #FADD00;
+            color: black; 
+        }
+        
+        
+        .custom-marker-danger {
+            background: #FF2A00; 
         }
 
         .custom-marker:after {
@@ -50,7 +60,7 @@
             position: absolute;
             border-style: solid;
             border-width: 7px 6px 0;
-            border-color: #ff0000 transparent;
+            border-color: #101010 transparent;
             display: block;
             width: 0;
             z-index: 1;
@@ -64,7 +74,7 @@
             position: absolute;
             border-style: solid;
             border-width: 7px 6px 0;
-            border-color: #7F7F7F transparent;
+            border-color: #101010 transparent;
             display: block;
             width: 0;
             z-index: 0;
@@ -75,7 +85,10 @@
 
         .custom-marker a {
             color: #fff;
-
+        }
+        
+        .custom-marker-alert a {
+            color: black; 
         }
 
     </style>

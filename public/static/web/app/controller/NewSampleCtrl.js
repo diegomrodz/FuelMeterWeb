@@ -72,7 +72,7 @@ FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', '$location', 'ngDia
             }
 
             var viaCepUrl = "https://viacep.com.br/ws/" + $scope.sample.stationCep + "/json/";
-            var geoCodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + $scope.sample.stationCep;
+            var geoCodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=Brasil," + $scope.sample.stationCep;
 
             $http({
                 url: viaCepUrl,

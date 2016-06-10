@@ -10,9 +10,9 @@
 
 <h5>Passo a Passo</h5>
 
-<p>
-    A realização do "Teste da Proveta" é bastante simples, e qualquer um pode pedir para que seu posto de confiança faça o teste (Conforme a Resolução ANP nº 9, de 7 de março de 2007).
-    Para isso siga os sehuintes passos:
+<p style="text-align: justify;">
+    A realização do "Teste da Proveta" é bastante simples, e qualquer um pode pedir para que seu posto de confiança faça o teste 
+    (Conforme a Resolução ANP nº 9, de 7 de março de 2007). Para isso siga os seguintes passos:
 </p>
 
 <br>
@@ -20,9 +20,9 @@
 <div style="margin-left: 20px;">
     <p>Obtenha de uma proveta milimetrada de 100ml;</p>
     <p>Adicione 50ml da Gasolina retirada direto do tanque;</p>
-    <p>Depois adicione 50ml de água;</p>
-    <p>Vire a proveta pelo menos 3 vezes;</p>
-    <p>Espere as duas camadas se separarem;</p>
+    <p>Depois adicione 50ml de água ou de solução de NaCl;</p>
+    <p>Vire a proveta pelo menos 10 vezes;</p>
+    <p>Espere as duas camadas se separarem, 10 minutos;</p>
     <p>Agora anote o volume da camada aquosa;</p>
     <p>Preencha o formulário e cadastre sua amostra;</p>
 </div>

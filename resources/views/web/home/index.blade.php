@@ -12,8 +12,10 @@
         id="{{marker[0].id}}"
         position="[{{marker[0].station_lat}}, {{marker[0].station_lng}}]">
 
-        <div class="custom-marker">
-            <a href="#/sample/{{marker[0].id}}">{{marker[0].station_name}}</a>
+        <div class="custom-marker" ng-class="getRangeClass(getLast(marker).sample_result)" style="min-width: 150px; max-width: 180px;">
+            <a href="#/station/{{marker[0].station_cep}}">{{marker[0].station_name}}</a> <br>
+            
+            <span>Ult. medição: {{getLast(marker).sample_result}}%</span>
         </div>
 
     </custom-marker>

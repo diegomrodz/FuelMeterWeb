@@ -29,13 +29,15 @@ FuelMeterWeb.service('AEACService' ,[
     function () {
         var me = this;
 
+        me.CURRENT_LIMIT = 27;
+
         me.calc = function (vol) {
             var dif = (vol - 50);
             if (dif < 0.5) return 0.01;
             var res = (dif * 2) + 1;
 
             return (res > 0 ? res : -res);
-        }
+        };
     }
 ]);
 
@@ -68,6 +70,14 @@ FuelMeterWeb.service('SampleRepository', ['$http',
                     sample: sample,
                     _token: CSRF_TOKEN
                 },
+                dataType: "json"
+            });
+        };
+        
+        me.byCep = function (cep) {
+            return $http({
+                url: api_v1_url("sample/by_cep/" + cep),
+                method: "get",
                 dataType: "json"
             });
         };
@@ -110,9 +120,25 @@ FuelMeterWeb.controller('HowToCtrl', ['$scope',
     }
 ]);
 
-FuelMeterWeb.controller('IndexCtrl', ['$scope', 'SampleRepository',
-    function ($scope, SampleRepository) {
+FuelMeterWeb.controller('IndexCtrl', ['$scope', 'SampleRepository', 'AEACService',
+    function ($scope, SampleRepository, AEACService) {
         $scope.markers = [];
+
+        $scope.getLast = function (arr) {
+            return arr[arr.length - 1];
+        };
+        
+        $scope.getRangeClass = function (res) {
+            if (res > AEACService.CURRENT_LIMIT) {
+                return "custom-marker-danger";
+            }
+            
+            if (res > AEACService.CURRENT_LIMIT - 2) {
+                return "custom-marker-alert";
+            }
+            
+            return "";
+        };
 
         SampleRepository.groupBy("station_cep").then(function (res) {
            $scope.markers = res.data; 
@@ -200,7 +226,7 @@ FuelMeterWeb.controller('NewSampleCtrl', ['$scope', '$http', '$location', 'ngDia
             }
 
             var viaCepUrl = "https://viacep.com.br/ws/" + $scope.sample.stationCep + "/json/";
-            var geoCodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + $scope.sample.stationCep;
+            var geoCodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=Brasil," + $scope.sample.stationCep;
 
             $http({
                 url: viaCepUrl,
@@ -254,6 +280,18 @@ FuelMeterWeb.controller('SampleDetailCtrl', ['$scope', '$routeParams', 'SampleRe
     }
 ]);
 
+FuelMeterWeb.controller("StationDetailCtrl", ["$scope", '$routeParams', "SampleRepository",
+    function ($scope, $routeParams, SampleRepository) {
+        $scope.station = {};
+        $scope.samples = [];
+        
+        SampleRepository.byCep($routeParams.cep).then(function (res) {
+            $scope.station = res.data[0];
+            $scope.samples = res.data;
+        });
+    }
+]);
+
 FuelMeterWeb.config(['$routeProvider',
     function ($routeProvider) {
 
@@ -277,6 +315,10 @@ FuelMeterWeb.config(['$routeProvider',
             .when("/sample/:sampleId", {
                 templateUrl: web_url("sample/detail"),
                 controller: "SampleDetailCtrl"
+            })
+            .when("/station/:cep", {
+                templateUrl: web_url("station/detail"),
+                controller: "StationDetailCtrl"
             })
             .when("/about", {
                 templateUrl: web_url("about")

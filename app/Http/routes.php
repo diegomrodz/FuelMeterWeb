@@ -36,6 +36,15 @@ Route::group([
         Route::get('/detail', 'ViewController@getDetail');
 
     });
+    
+    Route::group([
+        'namespace' => 'Station',
+        'prefix' => 'station'
+    ], function () {
+       
+       Route::get('/detail', 'ViewController@getDetail');
+        
+    });
 
     Route::group([
         'namespace' => 'About',
@@ -59,6 +68,7 @@ Route::group([
     ], function () {
 
         Route::resource('sample', 'SampleController');
+        Route::get("sample/by_cep/{cep}", 'SampleController@byCep');
         
     });
 

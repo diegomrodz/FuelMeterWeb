@@ -21,6 +21,14 @@ FuelMeterWeb.service('SampleRepository', ['$http',
                 dataType: "json"
             });
         };
+        
+        me.byCep = function (cep) {
+            return $http({
+                url: api_v1_url("sample/by_cep/" + cep),
+                method: "get",
+                dataType: "json"
+            });
+        };
 
         me.all = function () {
             return $http({

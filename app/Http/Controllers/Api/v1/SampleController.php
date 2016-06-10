@@ -56,6 +56,11 @@ class SampleController extends Controller
     {
         return Sample::find($id);
     }
+    
+    public function byCep($cep) 
+    {
+        return Sample::where("station_cep", $cep)->get();
+    }
 
     /**
      * Show the form for editing the specified resource.
